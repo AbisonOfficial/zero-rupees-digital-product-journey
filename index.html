@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zero Rupees Digital Product Journey (India)</title>
+<style>
+:root{--bg:#f6f2e9;--fg:#26342c;--card:#fff;--mut:#5e6f63;--acc:#35503f;--sage:#9dad95;--soft:#dce5d5;--ex:#35503f;--exfg:#f6f2e9;--sand:#efe3cb;--rust:#b5693a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17241d;--fg:#edebdd;--card:#22362b;--mut:#a9bbae;--acc:#9dad95;--soft:#2b4034;--ex:#0f1a14;--exfg:#edebdd;--sand:#3a3426;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17241d;--fg:#edebdd;--card:#22362b;--mut:#a9bbae;--acc:#9dad95;--soft:#2b4034;--ex:#0f1a14;--exfg:#edebdd;--sand:#3a3426;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16.5px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#app{max-width:680px;margin:0 auto;padding:18px 16px 40px}
+h1,h2,h3,.num{font-family:Georgia,"Times New Roman",serif}
+h1{font-size:1.9rem;line-height:1.15;margin:.2em 0;color:var(--acc)}
+h3{font-size:1.3rem;line-height:1.25;margin:.2em 0 .4em}
+.mut{color:var(--mut);font-size:.92rem}
+.bar{height:12px;border-radius:7px;background:var(--soft);overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:var(--acc);transition:width .5s}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 6px}
+.tab{flex:none;min-width:46px;height:46px;border:2px solid var(--acc);border-radius:50%;background:transparent;color:var(--fg);font:700 1rem Georgia,serif;cursor:pointer}
+.tab.on{background:var(--acc);color:var(--bg)}
+.tab.done{border-color:var(--sage)}
+.tab:disabled{opacity:.35;cursor:not-allowed}
+.lh{display:flex;align-items:flex-end;gap:14px;margin:18px 0 4px}
+.num{font-size:4.6rem;line-height:.85;color:var(--sage)}
+.lh h2{margin:0;font-size:1.55rem;line-height:1.15;color:var(--acc)}
+.card{background:var(--card);border-left:6px solid var(--acc);border-radius:6px;padding:16px;margin:16px 0}
+.q{font-size:1.1rem;font-weight:600;margin:8px 0}
+.hint{background:var(--soft);padding:11px 13px;font-size:.95rem;margin:10px 0}
+details.ex{background:var(--ex);color:var(--exfg);padding:10px 13px;margin:10px 0}
+details.ex summary{cursor:pointer;font-weight:700}
+details.ex p{margin:8px 0 0;font-size:.95rem}
+.pb{margin:12px 0}
+pre{white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1.5px dashed var(--sage);padding:10px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:4px 0 6px;text-align:left}
+textarea{width:100%;min-height:150px;border:2px solid var(--acc);border-radius:6px;padding:10px;font:inherit;background:var(--bg);color:var(--fg);resize:vertical;margin-top:8px}
+.b{border:0;background:var(--acc);color:var(--bg);font:700 1rem system-ui,sans-serif;padding:11px 20px;border-radius:30px;cursor:pointer;margin-top:10px}
+.b:disabled{opacity:.4;cursor:not-allowed}
+.b.s{padding:5px 14px;font-size:.85rem;background:transparent;color:var(--acc);border:1.5px solid var(--acc);margin-top:0}
+details.dn{border-left:6px solid var(--sage);background:var(--card);padding:8px 12px;margin:10px 0}
+details.dn summary{cursor:pointer;font-weight:600}
+.ans{white-space:pre-wrap;margin:8px 0 0;color:var(--mut)}
+.lock{color:var(--mut);text-align:center;margin:14px 0}
+.win{text-align:center}
+.warn{background:var(--sand);border-left:6px solid var(--rust);padding:10px 13px;font-size:.92rem;margin:12px 0}
+</style></head><body><div id="app"></div>
+<script>
+const LV=["Apna insaan","Research aur gap","Validate karo","Product banao","Design aur price","Becho","Free traffic","Ads aur launch"];
+const IN=["Ek specific insaan, ek specific problem. Wahi bikta hai.","Dekho market mein kya hai aur kya missing hai.","Banane se pehle poocho. Sabse sasta insurance.","AI se draft, apni voice mein edit, facts khud check.","Cover aur price: dono se trust banta hai.","Sales page, payment aur delivery. Sab free setup.","Bina paise ke logon tak pahunchna.","Ads sabse last. Pehle samjho kab fayda, kab nuksan."];
+const Q=[
+[0,"Apna insaan chuno","Wo ek specific Indian insaan kaun hai jise aap help karoge? “Students” nahi, bilkul specific likho.","Reddit, Quora, YouTube comments padho. Meta Ad Library (facebook.com/ads/library, Country: India) mein apna topic search karo: jis problem par kai log Instagram ya Facebook ads chala rahe hain, wahan interest ka hint milta hai. Zero rupees ka tareeka: sirf search aur padhna.","Tier-2 city ke final-year B.Com students jo pehli job ke interview se darte hain."],
+[0,"Unki 5 monthly problems","Is insaan ki 5 problems likho jo wo har mahine face karta hai aur jinke liye paise de sakta hai.","Google autosuggest, YouTube comments, Telegram aur WhatsApp groups. Unke exact words note karo.","Resume kaise likhein, “Tell me about yourself”, HR call ka darr, apply tracking, LinkedIn message.",["Main {{q1}} ke liye digital product banana chahta hoon (India). Unki 10 monthly problems batao jinke liye wo ₹99 se ₹299 de sakte hain. Urgent aur common ke hisaab se rank karo, ek line mein reason."]],
+[0,"Winner problem","Kaunsi ONE problem solve karoge, aur wo ek hafte mein kyun bik sakti hai?","Wo chuno jiske baare mein log baar baar complain karte hain. AI se honest raay lo, par faisla aapka.","",["Inme se kaunsi problem Instagram reels se ek hafte mein bik sakti hai? Honest raho aur batao kisse bachna chahiye aur kyun."]],
+[1,"Competitors aur complaints","3 similar products dhoondho (title, jagah, price) aur 3 complaints likho jo buyers karte hain.","Meta Ad Library (Instagram aur Facebook ads, Country: India, apna keyword search karo), Google Ads Transparency Center (adstransparency.google.com, Region: India), Amazon.in bestsellers, Topmate, Etsy. Ad kitne mahine se chal raha hai wo dekho, par ye proof nahi, sirf hint hai. 3-star reviews sabse honest hote hain. Competition hai = demand ka saboot. Sirf asli complaints likho.","Generic resume templates sirf English mein hain, interview practice nahi, Hinglish nahi."],
+[1,"Aapka difference","Likho: “[Insaan] ke liye jo [problem] se pareshan hai, mera [format] [difference] hai.”","Apni sabse badi complaint use karo.","",["Ye 3 competitors ke descriptions hain: [paste]. Buyers kya maang rahe hain jo inme nahi? Mere product ko alag banane ke 3 tareeke batao."]],
+[1,"Niche scorecard","5 sawalon par 1 se 5 number do aur total likho: Pain, Paying ability, Reachability (free mein pahunch sakte ho?), Competition proof, Aapki strength.","25 mein se 18 ya zyada = aage badho. 14 se 17 = aur research. 13 ya kam = doosri niche. Health claims, stock tips, legal advice wali niches se bacho.","Pain 5, Pay 4, Reach 5, Proof 4, Strength 4 = 22. Go."],
+[2,"10 logon se poocho","10 logon ko poll ya DM bhejo. Kitno ne “haan” bola aur unhone kya kaha? Agar 3 se kam, kya badlaoge?","Instagram story poll, WhatsApp status, 5 seedhe DMs, ya Google Form. “Nice idea” sale nahi hai. “Ready ho to batana” achcha signal hai.","12 logon se poocha, 4 ne bola “ready ho to batana, kitne ka hoga?”. Go."],
+[3,"Format aur title","Kya banaoge (ebook, Sheet, template, printable)? Working title aur size likho.","Pehla product chhota rakho: 15 se 30 pages ya ek template pack. Ebook zaroori nahi.","“Fresher Job Kit” = 25 page PDF + Google Sheet tracker."],
+[3,"Outline","AI se outline banwao aur final outline paste karo. Jo kaam ka nahi, kaat do.","Ek prompt mein sab nahi. Pehle outline, phir chapters. Indian examples maango (UPI, local trains, college).","",["Is product ka detailed outline banao: {{q8}}. Audience: {{q1}}, problem: {{q3}}. Simple Hinglish mein, dost ki tarah samjhao. Indian examples do."]],
+[3,"Chapter 1 aur fact-check","Chapter 1 likhwao, fact-check karo. AI ne kya galat ya risky bataya jo aapne fix kiya?","AI numbers, rules aur safety galat bata sakta hai. Official source se confirm karo. Apne examples aur voice daalo.","",["Chapter 1 poora likho outline ke hisaab se. Chhote paragraphs, simple steps, end mein ek quick tip.","Is chapter ki har tip check karo. Jo galat, risky ya unrealistic ho flag karo aur fix batao."]],
+[4,"Cover aur PDF","Cover kaisa hoga (colours, mood)? Chhote thumbnail mein bhi kyun tap hoga?","Canva free ya Google Docs se PDF. Phone par kholkar check karo. Doosron ki images, logos, Bollywood posters mat use karo. Canva ke free elements ka licence padho.","",["Is product ke liye bold ebook cover design batao: {{q8}}. Thumbnail mein bhi title padha jaye."]],
+[4,"Price","India price, launch price aur regular price likho (₹).","Starting ideas: ₹49 se ₹99 impulse, ₹149 se ₹299 clear problem. Competitors se compare karo. Platform fee pehle check karo: ₹99 mein ₹10 fee ho to ₹89 bachte hain (assumed).","Launch ₹99 (7 din), regular ₹199.",["Main {{q1}} ko [product] bech raha hoon. Similar products [₹X se ₹Y] mein bikte hain. Impulse buy ke liye starting price, launch price aur regular price batao, reason ke saath."]],
+[5,"Sales page","Title, subtitle, short description, “andar kya milega”, kiske liye hai aur FAQ paste karo.","Sirf sach likho. Fake reviews ya sales numbers kabhi nahi. Job ya result ka guarantee mat do.","",["Mere [product] ke liye title, subtitle, description, ‘andar kya milega’, kiske liye hai aur 4 FAQ likho. Simple Hinglish. Fake reviews ya sales numbers mat banana."]],
+[5,"Platform aur delivery","Kahan bechoge, file kaise milegi, aur refund policy kya hogi?","Topmate, Instamojo, Razorpay Payment Pages, Payhip, Gumroad. Fees, KYC (aam taur par PAN aur bank), payout rules khud check karo. Pehle 5 se 10 sales ke liye manual UPI plus Drive link bhi chalega."],
+[6,"Hooks aur 14 din plan","5 reel hooks (10 words se kam) aur 14 din ka free posting plan likho.","Hook ideas ke liye Meta Ad Library mein apna keyword search karo (India, Instagram) aur dekho ads ki pehli line kaisi hai. Copy mat karo, pattern seekho. Roz 1 reel ya post. Instagram, YouTube Shorts, Quora, Telegram. Pehle 2 hafte mein views kam ho sakte hain, ye normal hai.","“Tell me about yourself ka 30 second jawab”",["{{q1}} ke liye {{q3}} par 10 Instagram reel hooks likho jo pehle 2 second mein scroll rok dein. Har hook 10 words se kam, Hinglish mein."]],
+[7,"Ads: haan ya nahi?","Abhi ads lagaoge ya nahi? Kyun? Neeche ke green signals mein se aapke paas kaun se hain?","Pehle Ad Library (Meta aur Google) mein niche ke ads dekho: kitne log ads chala rahe hain, kaunsa offer aur hook, ad kitne mahine se chal raha hai (spend aur sales nahi dikhte). Fayda: tez reach, hooks ka test, targeting. Nuksan: paise bina sale ke ja sakte hain. Green: kuch real sales ya interest, saaf sales page, ek sale ka profit pata, test budget jo kho do. Red: validate nahi hua, loan ke paise, ₹99 product bina upsell ke. Math (assumed): ₹1000 ad, ₹6 click, 2% conversion, ₹99 product = lagbhag ₹703 loss. Pehle free traffic."],
+[7,"Launch aur agla product","Launch date, kahan post karoge, 14 din sales kaise track karoge, aur agle 2 products kaunse?","Google Sheet mein: date, post, views, clicks, sales. Sale na aaye to dekho: views kam = hook, clicks kam = offer, clicks par sale nahi = page ya price.","",["{{q1}} ke liye 10 aur digital products batao jo main AI se ek din mein bana sakun, kaun kharidega aur price kitna test karun."]]
+];
+let S={};try{S=JSON.parse(localStorage.getItem("dpi")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("dpi",JSON.stringify(S))}catch(e){}};
+const next=()=>Q.findIndex((_,i)=>!S[i]);
+let view=null;
+const h=(t,a,...c)=>{const e=document.createElement(t);for(const k in a||{}){k==="class"?e.className=a[k]:k.startsWith("on")?e[k]=a[k]:e.setAttribute(k,a[k])}c.flat().filter(x=>x!=null&&x!==false).forEach(x=>e.append(x));return e};
+const fill=p=>p.replace(/\{\{q(\d+)\}\}/g,(m,n)=>S[n-1]?S[n-1].trim():"[quest "+n+" ka aapka jawab]");
+function cp(t,b){const ok=()=>{b.textContent="Copied ✓";setTimeout(()=>b.textContent="Copy",1500)};
+const fb=()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}a.remove()};
+try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}}
+function card(i){const q=Q[i];
+const ta=h("textarea",{placeholder:"Apna jawab yahan likho. Aaram se sochke."});ta.value=S["d"+i]||"";
+const go=h("button",{class:"b",disabled:true,onclick:()=>{S[i]=ta.value.trim();delete S["d"+i];save();render();scrollTo(0,0)}},"Quest clear karo ✅");
+const cnt=h("div",{class:"mut"});
+const chk=()=>{const l=ta.value.trim().length;go.disabled=l<25;cnt.textContent=l<25?"Kam se kam 25 characters likho ("+l+"/25)":"Ready!"};
+ta.oninput=()=>{S["d"+i]=ta.value;save();chk()};chk();
+return h("div",{class:"card"},h("div",{class:"mut"},"Quest "+(i+1)+" of "+Q.length),h("h3",0,q[1]),h("p",{class:"q"},q[2]),h("div",{class:"hint"},"💡 "+q[3]),
+q[4]?h("details",{class:"ex"},h("summary",0,"Example dekho (sirf samajhne ke liye)"),h("p",0,q[4])):null,
+(q[5]||[]).map(p=>{const t=fill(p);const b=h("button",{class:"b s"},"Copy");b.onclick=()=>cp(t,b);return h("div",{class:"pb"},h("div",{class:"mut"},"🤖 Free AI tool mein paste karo"),h("pre",0,t),b)}),ta,cnt,go)}
+function win(){const t=Q.map((q,i)=>"Quest "+(i+1)+": "+q[1]+"\n"+S[i]).join("\n\n");
+const b=h("button",{class:"b s"},"Copy");b.onclick=()=>cp(t,b);
+const r=h("button",{class:"b s"},"Journey reset");r.onclick=()=>{if(r.dataset.s){S={};save();view=null;render()}else{r.dataset.s=1;r.textContent="Dobara tap karo: sab erase hoga"}};
+return h("div",{class:"card win"},h("h3",0,"🏆 Journey complete!"),h("p",0,"Aapke paas niche, product, price, sales page aur launch plan hai. Ab bechna shuru karo. Koi sale guarantee nahi hoti, par aapne process sahi follow kiya."),h("div",{class:"pb"},h("pre",0,t)),b," ",r)}
+function render(){
+const n=next(),done=Q.filter((_,i)=>S[i]).length,cl=n<0?LV.length:Q[n][0];
+if(view===null)view=Math.min(cl,LV.length-1);
+const A=document.getElementById("app");A.textContent="";
+A.append(h("div",{class:"mut"},"India edition · Hinglish · Sab free"),h("h1",0,"Zero Rupees Digital Product Journey"),h("div",{class:"bar"},h("i",{style:"width:"+(done/Q.length*100)+"%"})),h("div",{class:"mut"},"⭐ "+done+" of "+Q.length+" quests clear"),
+h("div",{class:"tabs"},LV.map((v,l)=>h("button",{class:"tab"+(l===view?" on":"")+(l<cl?" done":""),disabled:l>cl,title:v,onclick:()=>{view=l;render()}},l>cl?"🔒":String(l+1).padStart(2,"0")))));
+A.append(h("div",{class:"lh"},h("div",{class:"num"},String(view+1).padStart(2,"0")),h("h2",0,LV[view])),h("p",{class:"mut"},IN[view]));
+Q.forEach((q,i)=>{if(q[0]!==view)return;
+if(S[i])A.append(h("details",{class:"dn"},h("summary",0,"✓ Quest "+(i+1)+": "+q[1]),h("p",{class:"ans"},S[i])));
+else if(i===n)A.append(card(i))});
+const left=n<0?0:Q.filter((q,i)=>q[0]===view&&i>n).length;
+if(left)A.append(h("p",{class:"lock"},"🔒 "+left+" aur quest"+(left>1?"s":"")+" is ke baad khulenge"));
+if(view===LV.length-1)A.append(h("div",{class:"warn"},"Ye kisi bhi sale ki guarantee nahi hai. Fees, KYC aur tax rules badalte rehte hain, official pages check karo."));
+if(view<cl){if(view<LV.length-1)A.append(h("div",{class:"card win"},h("h3",0,"🎉 Level "+(view+1)+" clear!"),h("p",0,"Agla: "+LV[view+1]),h("button",{class:"b",onclick:()=>{view++;render();scrollTo(0,0)}},"Level "+(view+2)+" mein jao")));else A.append(win())}}
+render();
+</script></body></html>
